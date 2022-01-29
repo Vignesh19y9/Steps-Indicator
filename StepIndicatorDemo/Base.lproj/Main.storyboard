@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EIg-3h-U8D">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dgF-oZ-CO7">
+            <objects>
+                <navigationController id="EIg-3h-U8D" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V74-lg-YZu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CqR-7W-nFS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tOC-G0-7e8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1210" y="23"/>
+        </scene>
+        <!--Step Indicator Demo-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StepIndicatorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yST-gL-Hd6" customClass="StepIndicatorView" customModule="StepIndicatorDemo" customModuleProvider="target">
+                                <rect key="frame" x="56" y="74" width="263" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="E3e-xS-ZzW"/>
+                                    <constraint firstAttribute="width" constant="263" id="KBj-Ys-sXJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentStep">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleStrokeWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineMargin">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineStrokeWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="directionRaw">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayNumbers" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MyL-yX-cNQ">
+                                <rect key="frame" x="0.0" y="162" width="375" height="505"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PnJ-CX-m6O"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.92549019607843142" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MyL-yX-cNQ" secondAttribute="bottom" id="4hO-2L-ZF3"/>
+                            <constraint firstItem="MyL-yX-cNQ" firstAttribute="top" secondItem="yST-gL-Hd6" secondAttribute="bottom" constant="8" id="QBN-a7-98y"/>
+                            <constraint firstAttribute="trailing" secondItem="MyL-yX-cNQ" secondAttribute="trailing" id="QrL-9h-fK1"/>
+                            <constraint firstItem="MyL-yX-cNQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dE1-gl-5S0"/>
+                            <constraint firstItem="yST-gL-Hd6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ge3-Gy-hdE"/>
+                            <constraint firstItem="yST-gL-Hd6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="utg-A5-v2l"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Step Indicator Demo" id="2qk-Vj-Y8L"/>
+                    <connections>
+                        <outlet property="scrollView" destination="MyL-yX-cNQ" id="hMm-vp-os5"/>
+                        <outlet property="stepIndicatorView" destination="yST-gL-Hd6" id="vEk-q1-Nb3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-441" y="23"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QyS-IB-fRb">
+            <objects>
+                <viewController storyboardIdentifier="VerticalDemoViewController" id="c5y-hY-HpQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LoZ-RY-efr"/>
+                        <viewControllerLayoutGuide type="bottom" id="G1i-Yn-p8Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wd8-QT-T5k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inh-g6-dbK" customClass="StepIndicatorView" customModule="StepIndicatorDemo" customModuleProvider="target">
+                                <rect key="frame" x="42.5" y="71" width="290" height="72"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="dZ9-cu-Vr8"/>
+                                    <constraint firstAttribute="height" constant="72" id="rPU-CW-QGj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="directionRaw">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentStep">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-cO-CjV" customClass="StepIndicatorView" customModule="StepIndicatorDemo" customModuleProvider="target">
+                                <rect key="frame" x="245" y="209" width="72" height="290"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="290" id="6vG-NW-nue"/>
+                                    <constraint firstAttribute="width" constant="72" id="huB-q2-OCg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="directionRaw">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentStep">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right to Left mode" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5e-TF-CRh">
+                                <rect key="frame" x="120" y="43" width="135" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top to Bottom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvo-5C-acZ">
+                                <rect key="frame" x="43" y="181" width="103" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom to Top" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhC-SL-LXe">
+                                <rect key="frame" x="230" y="181" width="103" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egv-hZ-eKI" customClass="StepIndicatorView" customModule="StepIndicatorDemo" customModuleProvider="target">
+                                <rect key="frame" x="58" y="209" width="72" height="290"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="0gJ-nn-LL2"/>
+                                    <constraint firstAttribute="height" constant="290" id="STs-tH-b4P"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentStep">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="directionRaw">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GhC-SL-LXe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rvo-5C-acZ" secondAttribute="trailing" constant="8" id="4o0-Sp-av2"/>
+                            <constraint firstItem="GhC-SL-LXe" firstAttribute="top" secondItem="inh-g6-dbK" secondAttribute="bottom" constant="38" id="84c-6H-vrz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZgA-cO-CjV" secondAttribute="trailing" constant="42" id="94s-38-CbX"/>
+                            <constraint firstItem="M5e-TF-CRh" firstAttribute="top" secondItem="LoZ-RY-efr" secondAttribute="bottom" constant="43" id="9xO-J5-mV4"/>
+                            <constraint firstItem="M5e-TF-CRh" firstAttribute="centerX" secondItem="Wd8-QT-T5k" secondAttribute="centerX" id="E38-5n-84Q"/>
+                            <constraint firstItem="inh-g6-dbK" firstAttribute="top" secondItem="M5e-TF-CRh" secondAttribute="bottom" constant="8" id="EVI-fj-1vz"/>
+                            <constraint firstItem="egv-hZ-eKI" firstAttribute="leading" secondItem="Wd8-QT-T5k" secondAttribute="leadingMargin" constant="42" id="FPv-02-NRe"/>
+                            <constraint firstItem="egv-hZ-eKI" firstAttribute="top" secondItem="Rvo-5C-acZ" secondAttribute="bottom" constant="8" id="JZW-Tf-CVW"/>
+                            <constraint firstItem="Rvo-5C-acZ" firstAttribute="leading" secondItem="Wd8-QT-T5k" secondAttribute="leadingMargin" constant="27" id="MG5-eF-YnE"/>
+                            <constraint firstItem="inh-g6-dbK" firstAttribute="centerX" secondItem="Wd8-QT-T5k" secondAttribute="centerX" id="Vx6-ac-EEd"/>
+                            <constraint firstItem="ZgA-cO-CjV" firstAttribute="top" secondItem="GhC-SL-LXe" secondAttribute="bottom" constant="8" id="cl3-Gb-Tyl"/>
+                            <constraint firstItem="Rvo-5C-acZ" firstAttribute="top" secondItem="inh-g6-dbK" secondAttribute="bottom" constant="38" id="fFs-zx-Mib"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GhC-SL-LXe" secondAttribute="trailing" constant="26" id="oye-Yp-Owy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ba5-be-C11" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="261.60000000000002" y="22.938530734632685"/>
+        </scene>
+    </scenes>
+</document>
